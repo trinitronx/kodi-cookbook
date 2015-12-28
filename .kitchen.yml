@@ -16,11 +16,15 @@ platforms:
 suites:
   - name: default
     run_list:
+      - recipe[kodi-tests::default]
       - recipe[kodi::default]
+      - recipe[export-node]
     attributes:
   - name: pvr-mythtv
     run_list:
+      - recipe[kodi-tests::default]
       - recipe[kodi::default]
+      - recipe[export-node]
     attributes:
       kodi:
         addons:
