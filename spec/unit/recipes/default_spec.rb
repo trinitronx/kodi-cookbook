@@ -21,10 +21,13 @@
 require 'spec_helper'
 
 describe 'kodi::default' do
-  context 'When all attributes are default, on an unspecified platform' do
+  context 'When all attributes are default, on platform: ubuntu 14.04' do
     let(:chef_run) do
-      runner = ChefSpec::ServerRunner.new
-      runner.converge(described_recipe)
+      runner = ChefSpec::ServerRunner
+      runner.new(platform: 'ubuntu', version: '14.04') do |node|
+        node.set['lsb']['codename'] = 'trusty'
+        node.set['platform_family'] = 'debian'
+      end.converge(described_recipe)
     end
 
     it 'converges successfully' do
