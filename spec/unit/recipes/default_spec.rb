@@ -33,5 +33,63 @@ describe 'kodi::default' do
     it 'converges successfully' do
       expect { chef_run }.to_not raise_error
     end
+
+    it 'installs kodi ppa' do
+      expect( chef_run ).to add_apt_repository( 'kodi' )
+    end
+
+    it 'installs kodi package' do
+      expect( chef_run ).to install_package( 'kodi' )
+    end
+
   end
+
+  context 'When kodi addons are specified, on platform: ubuntu 14.04' do
+    let(:addons) {
+      [
+
+        'kodi-pvr-dev',
+        'kodi-pvr-argustv',
+        'kodi-pvr-demo',
+        'kodi-pvr-dvbviewer',
+        'kodi-pvr-iptvsimple',
+        'kodi-pvr-mediaportal',
+        'kodi-pvr-mythtv',
+        'kodi-pvr-nextpvr',
+        'kodi-pvr-njoy',
+        'kodi-pvr-hts',
+        'kodi-pvr-vdr',
+        'kodi-pvr-vuplus',
+      ]
+    }
+
+    let(:chef_run) do
+      runner = ChefSpec::ServerRunner
+      runner.new(platform: 'ubuntu', version: '14.04') do |node|
+        node.set['lsb']['codename'] = 'trusty'
+        node.set['platform_family'] = 'debian'
+        node.set['kodi']['addons'] = addons
+      end.converge(described_recipe)
+    end
+
+    it 'converges successfully' do
+      expect { chef_run }.to_not raise_error
+    end
+
+    it 'installs kodi ppa' do
+      expect( chef_run ).to add_apt_repository( 'kodi' )
+    end
+
+    it 'installs kodi package' do
+      expect( chef_run ).to install_package( 'kodi' )
+    end
+
+    it 'installs kodi addons packages' do
+      addons.each do |addon|
+        expect( chef_run ).to install_package( addon )
+      end
+    end
+
+  end
+
 end
