@@ -17,3 +17,15 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+apt_repository 'kodi' do
+  uri 'ppa:team-xbmc/ppa'
+  distribution node['lsb']['codename']
+end
+
+package 'kodi'
+
+unless node['kodi']['addons'].nil? || node['kodi']['addons'].empty?
+  node['kodi']['addons'].each do |addon|
+    package addon
+  end
+end

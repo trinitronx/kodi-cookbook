@@ -5,3 +5,5 @@ license 'gplv3'
 description 'Installs/Configures kodi'
 long_description 'Installs/Configures kodi'
 version '0.1.0'
+
+depends 'apt'
