@@ -18,3 +18,10 @@ suites:
     run_list:
       - recipe[kodi::default]
     attributes:
+  - name: pvr-mythtv
+    run_list:
+      - recipe[kodi::default]
+    attributes:
+      kodi:
+        addons:
+          - kodi-pvr-mythtv
