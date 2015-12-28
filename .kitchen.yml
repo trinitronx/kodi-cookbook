@@ -20,7 +20,7 @@ suites:
       - recipe[kodi::default]
       - recipe[export-node]
     attributes:
-  - name: pvr-mythtv
+  - name: pvr-addons
     run_list:
       - recipe[kodi-tests::default]
       - recipe[kodi::default]
