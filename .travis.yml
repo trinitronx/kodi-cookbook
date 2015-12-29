@@ -30,5 +30,5 @@ script:
   - /opt/chefdk/embedded/bin/chef --version
   - /opt/chefdk/embedded/bin/foodcritic --version
   - rake test
-  - KITCHEN_LOCAL_YAML=.kitchen.docker.yml /opt/chefdk/embedded/bin/kitchen verify ${INSTANCE}
+  - KITCHEN_LOCAL_YAML=.kitchen.docker.local.yml /opt/chefdk/embedded/bin/kitchen verify ${INSTANCE}
 
