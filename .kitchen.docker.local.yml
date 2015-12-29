@@ -7,21 +7,40 @@
 ---
 driver:
   name: docker
+  provision_command: &1
+    - curl -L http://www.opscode.com/chef/install.sh | bash
+
+<% unless ENV['KITCHEN_HTTP_PROXY'].nil? %>
+  http_proxy: <%= ENV['KITCHEN_HTTP_PROXY'] %>
+  links: "polipo:polipo"
+<% end %>
+<% unless ENV['KITCHEN_HTTP_PROXY'].nil? && ENV['KITCHEN_HTTPS_PROXY'].nil? %>
+  https_proxy: <%= ENV['KITCHEN_HTTPS_PROXY'].nil? ? ENV['KITCHEN_HTTP_PROXY'] : ENV['KITCHEN_HTTPS_PROXY'] %>
+<% end %>
+
   driver_config:
     hostname: kitchen
-      use_sudo: true
-      socket: <%= ENV['DOCKER_HOST'] || 'unix:///var/run/docker.sock' %>
+    use_sudo: true
+    socket: <%= ENV['DOCKER_HOST'] || 'unix:///var/run/docker.sock' %>
     #  socket: tcp://localhost:4243
-    #  require_chef_omnibus: true
-    #  hostname: kitchen
-    provision_command: &1
-      - curl -L https://www.opscode.com/chef/install.sh | bash
+    require_chef_omnibus: false
+
+provisioner:
+  require_chef_omnibus: false
+<% unless ENV['KITCHEN_HTTP_PROXY'].nil? && ENV['KITCHEN_HTTPS_PROXY'].nil? %>
+  chef_omnibus_url: http://www.getchef.com/chef/install.sh
+  client_rb:
+    http_proxy: <%= ENV['KITCHEN_HTTP_PROXY'] %>
+    https_proxy: <%= ENV['KITCHEN_HTTPS_PROXY'].nil? ? ENV['KITCHEN_HTTP_PROXY'] : ENV['KITCHEN_HTTPS_PROXY'] %>
+<% end %>
 
 platforms:
 ## Trusty Tahr LTS
 - name: ubuntu-14.04
 ## Vivid Vervet ## EOL January 2016
 - name: ubuntu-15.04
+  links: polipo:polipo
 ## Xenial Xerus
 - name: ubuntu-16.04
+  links: polipo:polipo
 
