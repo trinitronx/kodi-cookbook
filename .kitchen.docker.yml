@@ -1,0 +1,27 @@
+## If you want to use one of the kitchen-docker* drivers...
+### You should rename this file to: .kitchen.local.yml
+### OR:
+###   export KITCHEN_LOCAL_YAML=.kitchen.docker.local.yml
+### Hint: Make sure you have kitchen-docker and kitchen-docker-api gems installed
+### Then set DOCKER_HOST=tcp://my-docker-host.example.com:4243
+---
+driver:
+  name: docker
+  driver_config:
+    hostname: kitchen
+      use_sudo: true
+      socket: <%= ENV['DOCKER_HOST'] || 'unix:///var/run/docker.sock' %>
+    #  socket: tcp://localhost:4243
+    #  require_chef_omnibus: true
+    #  hostname: kitchen
+    provision_command: &1
+      - curl -L https://www.opscode.com/chef/install.sh | bash
+
+platforms:
+## Trusty Tahr LTS
+- name: ubuntu-14.04
+## Vivid Vervet ## EOL January 2016
+- name: ubuntu-15.04
+## Xenial Xerus
+- name: ubuntu-16.04
+
