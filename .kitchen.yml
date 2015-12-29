@@ -12,6 +12,8 @@ provisioner:
 
 platforms:
   - name: ubuntu-14.04
+  - name: ubuntu-15.04
+  - name: ubuntu-16.04
 
 suites:
   - name: default
@@ -21,6 +23,10 @@ suites:
       - recipe[export-node]
     attributes:
   - name: pvr-addons
+    excludes:
+## Kodi PPA does not exist for Xenial Xerus yet!
+## Therefore the kodi-pvr-* packages are not yet available there
+      - ubuntu-16.04
     run_list:
       - recipe[kodi-tests::default]
       - recipe[kodi::default]
