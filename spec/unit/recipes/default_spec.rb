@@ -51,15 +51,21 @@ describe 'kodi::default' do
         'kodi-pvr-dev',
         'kodi-pvr-argustv',
         'kodi-pvr-demo',
+        'kodi-pvr-dvblink',
         'kodi-pvr-dvbviewer',
+        'kodi-pvr-filmon',
         'kodi-pvr-iptvsimple',
-        'kodi-pvr-mediaportal',
+        'kodi-pvr-mediaportal-tvserver',
         'kodi-pvr-mythtv',
         'kodi-pvr-nextpvr',
         'kodi-pvr-njoy',
-        'kodi-pvr-hts',
-        'kodi-pvr-vdr',
+        'kodi-pvr-pctv',
+        'kodi-pvr-stalker',
+        'kodi-pvr-vbox',
+        'kodi-pvr-vdr-vnsi',
         'kodi-pvr-vuplus',
+        'kodi-pvr-wmc',
+        'kodi-pvr-hts'
       ]
     }
 
