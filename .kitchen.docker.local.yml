@@ -5,6 +5,7 @@
 ### Hint: Make sure you have kitchen-docker and kitchen-docker-api gems installed
 ### Then set DOCKER_HOST=tcp://my-docker-host.example.com:4243
 ---
+#driver_plugin: docker
 driver:
   name: docker
   provision_command: &1
@@ -24,6 +25,9 @@ driver:
     socket: <%= ENV['DOCKER_HOST'] || 'unix:///var/run/docker.sock' %>
     #  socket: tcp://localhost:4243
     require_chef_omnibus: false
+    provision_command: &1
+      - curl -L http://www.opscode.com/chef/install.sh | bash
+
 
 provisioner:
   require_chef_omnibus: false
