@@ -1,6 +1,7 @@
 language: generic
 
-sudo: false
+sudo: required
+services: docker
 
 env:
   global:
@@ -17,7 +18,5 @@ before_script:
   - eval "$(chef shell-init $(basename $SHELL))"
 
 script:
-  - rake knife
-  - rake foodcritic
-  - rake chefspec
+  - rake test
 
