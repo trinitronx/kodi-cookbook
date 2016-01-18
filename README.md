@@ -50,7 +50,7 @@ this cookbook, please follow up there.
 License and Author
 ==================
 
-* Copyright 2016 James Cuzella <@trinitronx>
+* Copyright 2016 James Cuzella <[@trinitronx][3]>
 
 
 Licensed under the GNU GPL, Version 3.0 (the "License");
@@ -66,3 +66,4 @@ See the License for the specific language governing permissions and
 
 [1]: http://kodi.tv/
 [2]: https://supermarket.chef.io/cookbooks/kodi
+[3]: https://github.com/trinitronx
