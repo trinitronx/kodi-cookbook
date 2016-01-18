@@ -8,6 +8,8 @@ version '0.1.2'
 
 depends 'apt', '>= 2.6.0'
 
+supports 'ubuntu'
+
 provides 'kodi::default'
 recipe 'kodi::default', 'Installs kodi, and optionally any addons specified in attributes'
 attribute 'kodi/addons',
