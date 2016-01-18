@@ -8,8 +8,58 @@ Description
 
 Installs & configures the ultimate DVD Player & Set Top Box, & next-generation of XBMC: [Kodi][1]
 
+Usage
+======
+To use, simply add `kodi::default` to your runlist.
+
+Attributes
+----------
+
+ - `node['kodi']['addons']`: An `Array` of addon package names to install. Optional.
+
+Example
+-------
+
+For example, if we wanted to install kodi plus the `kodi-pvr-mythtv` addon onto an existing [mythtv][4] frontend & backend server...
+
+Create a role: `roles/kodi-frontend.json`:
+
+    {
+      "json_class": "Chef::Role",
+      "name": "kodi-frontend",
+      "description": "Role for Kodi frontend servers",
+      "default_attributes": {
+        "kodi": {
+          "addons": ["kodi-pvr-mythtv"]
+        }
+      },
+      "run_list": [
+        "recipe[kodi::default]"
+      ]
+    }
+
+Then add `role[kodi-frontend]` to your node's `run_list`:
+
+    {
+      "name": "kodi.example.com",
+      
+      "run_list": [
+        "role[base]",
+        "role[mythtv-frontend]",
+        "role[mythtv-backend]",
+        "role[kodi-frontend]"
+      ]
+    }
+    
+
+
 Changes
 =======
+
+## v0.1.5:
+
+* Minor enhancements
+  * Add Usage example to README
 
 ## v0.1.4:
 
@@ -67,3 +117,5 @@ See the License for the specific language governing permissions and
 [1]: http://kodi.tv/
 [2]: https://supermarket.chef.io/cookbooks/kodi
 [3]: https://github.com/trinitronx
+[4]: https://supermarket.chef.io/cookbooks/mythtv
+
