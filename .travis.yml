@@ -8,10 +8,11 @@ env:
   - PATH="/opt/chefdk/bin:/opt/chef/bin:/opt/chef/embedded/bin:/opt/chefdk/embedded/bin:$PATH"
   matrix:
   - INSTANCE=default-ubuntu-1404
-  - INSTANCE=default-ubuntu-1504
   - INSTANCE=default-ubuntu-1604
+  - INSTANCE=default-ubuntu-1710
   - INSTANCE=pvr-addons-ubuntu-1404
-  - INSTANCE=pvr-addons-ubuntu-1504
+  - INSTANCE=pvr-addons-ubuntu-1604
+  - INSTANCE=pvr-addons-ubuntu-1710
 
 addons:
   apt:
