@@ -15,7 +15,7 @@ To use, simply add `kodi::default` to your runlist.
 Attributes
 ----------
 
- - `node['kodi']['addons']`: An `Array` of addon package names to install. Optional.
+ - `node['kodi']['addons']`: An `Array` of addon package names to install. Optional. Default: `[]` (empty). For full list of available packages, see kodi ppa: http://kodi.wiki/view/Official_Ubuntu_PPA
 
 Example
 -------

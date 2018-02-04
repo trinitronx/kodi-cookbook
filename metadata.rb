@@ -17,11 +17,4 @@ chef_version '>= 12.5.1' if respond_to?(:chef_version)
 
 provides 'kodi::default'
 recipe 'kodi::default', 'Installs kodi, and optionally any addons specified in attributes'
-attribute 'kodi/addons',
-  :display_name => 'Kodi Addons',
-  :description => 'An optional list of extra kodi addon packages to install. Accepts an array of package names.  For full list of available packages, see kodi ppa: http://kodi.wiki/view/Official_Ubuntu_PPA',
-  :type => 'array',
-  :required => 'optional',
-  :recipes => [ 'kodi::default' ],
-  :default => "[]"
 
