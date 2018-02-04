@@ -12,7 +12,6 @@ env:
   - INSTANCE=default-ubuntu-1710
   - INSTANCE=pvr-addons-ubuntu-1404
   - INSTANCE=pvr-addons-ubuntu-1604
-  - INSTANCE=pvr-addons-ubuntu-1710
 
 addons:
   apt:

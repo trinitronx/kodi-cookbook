@@ -24,9 +24,10 @@ suites:
       - recipe[export-node]
     attributes:
   - name: pvr-addons
-#    excludes:
-## Kodi PPA does not exist for Bionic Beaver yet!
+    excludes:
+## Kodi PPA does not exist for Artful Aardvark or Bionic Beaver yet!
 ## Therefore the kodi-pvr-* packages are not yet available there
+      - ubuntu-17.10
 #      - ubuntu-18.04
     run_list:
       - recipe[kodi-tests::default]
