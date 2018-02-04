@@ -1,7 +1,7 @@
 name 'kodi'
 maintainer 'James Cuzella'
 maintainer_email 'james.cuzella@lyraphase.com'
-license 'GPL-3.0-or-later'
+license 'GPL-3.0+'
 description 'Installs/Configures kodi'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version '0.1.5'
