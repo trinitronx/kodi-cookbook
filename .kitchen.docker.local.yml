@@ -48,6 +48,14 @@ platforms:
 <% end %>
 ## Artful Aardvark ## EOL July 2018
 - name: ubuntu-17.10
+  driver_config:
+    provision_command:
+      - sudo apt-get install dirmngr --install-recommends
+      - 'curl -L http://www.opscode.com/chef/install.sh | bash'
+    run_command: /sbin/init
+    run_options:
+      - volume: "/sys/fs/cgroup:/sys/fs/cgroup"
+      - "--privileged"
 <% unless ENV['KITCHEN_HTTP_PROXY'].nil? %>
   links: "polipo:polipo"
 <% end %>
