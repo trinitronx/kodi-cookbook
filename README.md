@@ -1,6 +1,6 @@
 # kodi
 <noscript><a href="https://liberapay.com/trinitronx/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a></noscript>
-[![Build Status](https://img.shields.io/travis/trinitronx/kodi.svg)](https://travis-ci.org/trinitronx/kodi-cookbook)
+[![Build Status](https://img.shields.io/travis/trinitronx/kodi-cookbook.svg)](https://travis-ci.org/trinitronx/kodi-cookbook)
 [![Cookbook Version](http://img.shields.io/cookbook/v/kodi.svg)](https://supermarket.chef.io/cookbooks/kodi)
 
 Description
