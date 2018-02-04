@@ -6,6 +6,9 @@ description 'Installs/Configures kodi'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version '0.1.5'
 
+source_url 'https://github.com/trinitronx/kodi-cookbook'
+issues_url 'https://github.com/trinitronx/kodi-cookbook/issues'
+
 depends 'apt', '>= 2.6.0'
 
 supports 'ubuntu'
