@@ -13,6 +13,8 @@ depends 'apt', '>= 2.6.0'
 
 supports 'ubuntu'
 
+chef_version '>= 12.5.1' if respond_to?(:chef_version)
+
 provides 'kodi::default'
 recipe 'kodi::default', 'Installs kodi, and optionally any addons specified in attributes'
 attribute 'kodi/addons',
