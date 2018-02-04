@@ -100,7 +100,7 @@ this cookbook, please follow up there.
 License and Author
 ==================
 
-* Copyright 2016 James Cuzella <[@trinitronx][3]>
+* Copyright 2016-2018 James Cuzella <[@trinitronx][3]>
 
 
 Licensed under the GNU GPL, Version 3.0 (the "License");
