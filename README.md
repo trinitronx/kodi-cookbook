@@ -56,6 +56,28 @@ Then add `role[kodi-frontend]` to your node's `run_list`:
 Changes
 =======
 
+## v0.1.7:
+
+* Minor enhancements
+  * Guard old Chef against `source_url`, `issues_url` undefined method errors
+  * Attempt to set up TravisCI deploy to Chef Supermarket
+
+## v0.1.6:
+
+* Minor packaging enhancements to meet new foodcritic requirements & cookbook quality metrics
+  * Added CONTRIBUTING.md
+  * Added TESTING.md
+  * Added LICENSE file (GPL 3.0+)
+  * Add `source_url`, `issues_url` to metadata
+  * Fix FC072: Metadata should not contain "attribute" keyword
+  * Fix FC069, FC078: Add spdx.org standardized license to metadata (NOTE: foodcritic was wanting string `GPL-3.0+` which they say is deprecated. We may need to switch again in future to `GPL-3.0-or-later` License Expression syntax as of v2.0)
+  * Fix FC066: Add chef_version to metadata
+* Many `test-kitchen` integration test framework fixes
+  * Remove EOL platform versions
+  * Add new LTS platform versions
+  * Fix integration tests to pass on all platforms
+  * Fight with TravisCI until we win
+
 ## v0.1.5:
 
 * Minor enhancements
