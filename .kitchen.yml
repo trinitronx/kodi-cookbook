@@ -14,6 +14,7 @@ platforms:
   - name: ubuntu-14.04
   - name: ubuntu-16.04
   - name: ubuntu-17.10
+#  - name: ubuntu-18.04
 
 suites:
   - name: default
@@ -23,10 +24,10 @@ suites:
       - recipe[export-node]
     attributes:
   - name: pvr-addons
-    excludes:
-## Kodi PPA does not exist for Xenial Xerus yet!
+#    excludes:
+## Kodi PPA does not exist for Bionic Beaver yet!
 ## Therefore the kodi-pvr-* packages are not yet available there
-      - ubuntu-16.04
+#      - ubuntu-18.04
     run_list:
       - recipe[kodi-tests::default]
       - recipe[kodi::default]

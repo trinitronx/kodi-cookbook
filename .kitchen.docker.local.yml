@@ -39,16 +39,21 @@ provisioner:
 <% end %>
 
 platforms:
-## Trusty Tahr LTS
+## Trusty Tahr LTS ## EOL April 2019
 - name: ubuntu-14.04
-## Vivid Vervet ## EOL January 2016
-- name: ubuntu-15.04
-<% unless ENV['KITCHEN_HTTP_PROXY'].nil? %>
-  links: "polipo:polipo"
-<% end %>
 ## Xenial Xerus
-- name: ubuntu-16.04
+- name: ubuntu-16.04 ## EOL April 2021
 <% unless ENV['KITCHEN_HTTP_PROXY'].nil? %>
   links: "polipo:polipo"
 <% end %>
+## Artful Aardvark ## EOL July 2018
+- name: ubuntu-17.10
+<% unless ENV['KITCHEN_HTTP_PROXY'].nil? %>
+  links: "polipo:polipo"
+<% end %>
+## Bionic Beaver ## EOL ??
+#- name: ubuntu-18.04
+#<% unless ENV['KITCHEN_HTTP_PROXY'].nil? %>
+#  links: "polipo:polipo"
+#<% end %>
 
