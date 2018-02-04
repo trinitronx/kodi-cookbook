@@ -8,8 +8,9 @@
 #driver_plugin: docker
 driver:
   name: docker
-  provision_command: &1
-    - curl -L http://www.opscode.com/chef/install.sh | bash
+  use_sudo: false
+  provision_command:
+    - 'curl -L http://www.opscode.com/chef/install.sh | bash'
 
 <% unless ENV['KITCHEN_HTTP_PROXY'].nil? %>
   http_proxy: <%= ENV['KITCHEN_HTTP_PROXY'] %>
@@ -22,17 +23,16 @@ driver:
   driver_config:
     hostname: kitchen
     use_sudo: true
-    socket: <%= ENV['DOCKER_HOST'] || 'unix:///var/run/docker.sock' %>
-    #  socket: tcp://localhost:4243
     require_chef_omnibus: false
-    provision_command: &1
-      - curl -L http://www.opscode.com/chef/install.sh | bash
+    provision_command:
+      - 'curl -L http://www.opscode.com/chef/install.sh | bash'
 
 
 provisioner:
   require_chef_omnibus: false
+  chef_omnibus_root: /opt/chef
 <% unless ENV['KITCHEN_HTTP_PROXY'].nil? && ENV['KITCHEN_HTTPS_PROXY'].nil? %>
-  chef_omnibus_url: http://www.getchef.com/chef/install.sh
+  chef_omnibus_url: "http://www.getchef.com/chef/install.sh"
   client_rb:
     http_proxy: <%= ENV['KITCHEN_HTTP_PROXY'] %>
     https_proxy: <%= ENV['KITCHEN_HTTPS_PROXY'].nil? ? ENV['KITCHEN_HTTP_PROXY'] : ENV['KITCHEN_HTTPS_PROXY'] %>
@@ -43,8 +43,12 @@ platforms:
 - name: ubuntu-14.04
 ## Vivid Vervet ## EOL January 2016
 - name: ubuntu-15.04
-  links: polipo:polipo
+<% unless ENV['KITCHEN_HTTP_PROXY'].nil? %>
+  links: "polipo:polipo"
+<% end %>
 ## Xenial Xerus
 - name: ubuntu-16.04
-  links: polipo:polipo
+<% unless ENV['KITCHEN_HTTP_PROXY'].nil? %>
+  links: "polipo:polipo"
+<% end %>
 
