@@ -4,7 +4,7 @@ maintainer_email 'james.cuzella@lyraphase.com'
 license 'GPL-3.0+'
 description 'Installs/Configures kodi'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version '0.1.5'
+version '0.1.6'
 
 source_url 'https://github.com/trinitronx/kodi-cookbook'
 issues_url 'https://github.com/trinitronx/kodi-cookbook/issues'
