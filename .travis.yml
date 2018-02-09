@@ -35,6 +35,8 @@ script:
   - KITCHEN_LOCAL_YAML=.kitchen.docker.local.yml /opt/chefdk/embedded/bin/kitchen verify ${INSTANCE}
 
 deploy:
+  edge:
+    branch: ruby-2.3
   provider: chef-supermarket
   user_id: "jcuzella"
   client-key: client.pem
